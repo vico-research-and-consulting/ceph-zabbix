@@ -17,6 +17,31 @@ export PATH=/bin:/usr/bin
 TMPS=`mktemp -t zbx-ceph.XXXXXXXXXXX`
 
 case ${OPERATION} in
+  monitor)
+    HOSTNAME_MON=$(hostname -s)
+    if [ -e /var/run/ceph/${CLUSTER_NAME}-mon.${HOSTNAME_MON}.asok ];
+    then
+     ceph daemon mon.${HOSTNAME_MON} mon_status 2>/dev/null | jq -e '.state == "leader"' &> /dev/null
+     RET="$?"
+     if [ "$RET" = "0" ];then
+        echo "INFO: This is the leader, gathering data and sending it to the zabbix server"
+     else
+        echo "INFO: This is not the leader, skipping execution"
+        exit $RET
+     fi
+   else
+     echo "ERROR: This is not a mon server"
+     exit 1
+   fi 
+   (
+   set -x
+   $0 ${CLUSTER_NAME} mons $HOSTNAME
+   $0 ${CLUSTER_NAME} osds $HOSTNAME
+   $0 ${CLUSTER_NAME} pools $HOSTNAME
+   $0 ${CLUSTER_NAME} health $HOSTNAME
+   ) 2>&1 | tee /tmp/ceph-data.out
+   echo "INFO: logged output to /tmp/ceph-data.out"
+  ;;
   osds)
     ceph --cluster ${CLUSTER_NAME} osd df tree -f json |\
       jq -r '(.nodes[]|select(.type=="osd")|"\(.name) \(.kb_avail / 1048576)"),
