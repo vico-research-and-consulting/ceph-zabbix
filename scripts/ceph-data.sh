@@ -14,25 +14,26 @@ OPERATION=$2
 HOSTNAME=$3
 
 export PATH=/bin:/usr/bin
-TMPS=`mktemp -t zbx-ceph.XXXXXXXXXXX`
+TMPS1="`mktemp -t zbx-ceph.XXXXXXXXXXX`"
+TMPS2="`mktemp -t zbx-ceph.XXXXXXXXXXX`"
 
+HOSTNAME_MON=$(hostname -s)
+if [ -e /var/run/ceph/${CLUSTER_NAME}-mon.${HOSTNAME_MON}.asok ];
+then
+   ceph daemon mon.${HOSTNAME_MON} mon_status 2>/dev/null | jq -e '.state == "leader"' &> /dev/null
+   RET="$?"
+   if [ "$RET" = "0" ];then
+      echo "INFO: This is the leader, gathering data and sending it to the zabbix server"
+   else
+      echo "INFO: This is not the leader, skipping execution"
+      exit $RET
+   fi
+else
+  echo "ERROR: This is not a mon server"
+  exit 1
+fi 
 case ${OPERATION} in
   monitor)
-    HOSTNAME_MON=$(hostname -s)
-    if [ -e /var/run/ceph/${CLUSTER_NAME}-mon.${HOSTNAME_MON}.asok ];
-    then
-     ceph daemon mon.${HOSTNAME_MON} mon_status 2>/dev/null | jq -e '.state == "leader"' &> /dev/null
-     RET="$?"
-     if [ "$RET" = "0" ];then
-        echo "INFO: This is the leader, gathering data and sending it to the zabbix server"
-     else
-        echo "INFO: This is not the leader, skipping execution"
-        exit $RET
-     fi
-   else
-     echo "ERROR: This is not a mon server"
-     exit 1
-   fi 
    (
    set -x
    $0 ${CLUSTER_NAME} mons $HOSTNAME
@@ -41,8 +42,10 @@ case ${OPERATION} in
    $0 ${CLUSTER_NAME} health $HOSTNAME
    ) 2>&1 | tee /tmp/ceph-data.out
    echo "INFO: logged output to /tmp/ceph-data.out"
+   exit 0
   ;;
   osds)
+    KEY="ceph-osd-discovery[$CLUSTER_NAME,$OPERATION,$HOSTNAME]"
     ceph --cluster ${CLUSTER_NAME} osd df tree -f json |\
       jq -r '(.nodes[]|select(.type=="osd")|"\(.name) \(.kb_avail / 1048576)"),
         "ceph.spaceavail \(.summary.total_kb_avail / 1048576)",
@@ -53,18 +56,19 @@ case ${OPERATION} in
           if($1~/^osd/){
             if(NR!=1){ printf "," }
             print "{ \"{#OSD}\":\""$1"\" }"
-            print "'$HOSTNAME' ceph.osdspaceavail["$1"] "$2 >"'${TMPS}'"
+            print "'$HOSTNAME' ceph.osdspaceavail["$1"] "$2 >"'${TMPS1}'"
           }else{
-            print "'$HOSTNAME' "$1" "$2 >"'${TMPS}'"
+            print "'$HOSTNAME' "$1" "$2 >"'${TMPS1}'"
           }
         }
-        END{ print "]}" }'
+        END{ print "]}" }' >$TMPS2
     ceph --cluster ${CLUSTER_NAME} osd dump -f json |\
       jq -r '(.osds[]| "'${HOSTNAME}' ceph.osdstatus[osd.\(.osd)] \(.up)"),
-        "'${HOSTNAME}' ceph.osdcount \(.max_osd)"' >>${TMPS}
+        "'${HOSTNAME}' ceph.osdcount \(.max_osd)"' >>${TMPS1}
   ;;
 
   pools)
+    KEY="ceph-pools-discovery[$CLUSTER_NAME,$OPERATION,$HOSTNAME]"
     ceph --cluster ${CLUSTER_NAME} df -f json |\
       jq -r '.pools[]|"\(.name) \(.stats.max_avail / 1073741824)"'|\
       awk '
@@ -72,12 +76,13 @@ case ${OPERATION} in
         {
           if(NR!=1){ printf "," }
           print "{ \"{#POOL}\":\""$1"\" }"
-          print "'$HOSTNAME' ceph.poolspaceavail["$1"] "$2 >"'${TMPS}'"
+          print "'$HOSTNAME' ceph.poolspaceavail["$1"] "$2 >"'${TMPS1}'"
         }
-        END{ print "]}" }'
+        END{ print "]}" }' >$TMPS2
   ;;
 
   mons)
+    KEY="ceph-mon-discovery[$CLUSTER_NAME,$OPERATION,$HOSTNAME]"
     ceph --cluster ${CLUSTER_NAME} mon dump 2>/dev/null -f json |\
       jq -r  'reduce .mons[] as $mon ({rquorum:.quorum,rmons:{}}; . + {rmons:(.rmons+ { ($mon.name):(.rquorum| if index($mon.rank)==null then 0 else 1 end) })} ) |.rmons|to_entries[]|"\(.key) \(.value)"'|\
       awk '
@@ -85,12 +90,13 @@ case ${OPERATION} in
         {
           if(NR!=1){ printf "," }
           print "{ \"{#MON}\":\""$1"\" }"
-          print "'$HOSTNAME' ceph.monstatus["$1"] "$2 >"'${TMPS}'"
+          print "'$HOSTNAME' ceph.monstatus["$1"] "$2 >"'${TMPS1}'"
         }
-        END{ print "]}" }'
+        END{ print "]}" }' >$TMPS2
   ;;
 
   health)
+    KEY="health[$CLUSTER_NAME,$OPERATION,$HOSTNAME]"
     ceph --cluster ${CLUSTER_NAME} status -f json |\
       jq -r '
         "\(if .health.status =="HEALTH_OK" then 1 elif .health.status =="HEALTH_WARN" then 2 else 0 end)",
@@ -135,20 +141,29 @@ case ${OPERATION} in
           if(NR==1){
             print
           }else{
-            print "'$HOSTNAME' "$0> "'${TMPS}'"
+            print "'$HOSTNAME' "$0> "'${TMPS1}'"
           }
-        }'
+        }' >$TMPS2
   ;;
 esac
 
 if [ -z ${HOSTNAME} ]; then
-  cat ${TMPS}
-elif [ -s ${TMPS} ]; then
+  echo ------------------------------------------------------------------------------
+  cat ${TMPS1}
+  echo ------------------------------------------------------------------------------
+  echo "$KEY ===>"
+  cat ${TMPS2}|tr '\n' ' '
+  echo ------------------------------------------------------------------------------
+elif [ -s ${TMPS1} ]; then
   if [ -z ${LOG} ]; then
-    zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS}
+    zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1}
+    echo ---------------------
+    zabbix_sender -c ${ZBX_CONFIG_AGENT} -s $HOSTNAME -k "$KEY" -o "$(echo "${TMPS2}"|tr '\n' ' ')" 
   else
-    zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS}  -vv >> ${LOG} 2>&1
+    zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1}  -vv >> ${LOG} 2>&1
+    echo ---------------------
+    zabbix_sender -c ${ZBX_CONFIG_AGENT} -s $HOSTNAME -k "$KEY" -o "$(echo "${TMPS2}"|tr '\n' ' ')"  -vv >> ${LOG} 2>&1
   fi
 fi
 
-rm -f ${TMPS}
+rm -f ${TMPS1}
