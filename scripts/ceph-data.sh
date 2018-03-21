@@ -1,8 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 #
-# ceph-data.sh <cluster_name> <mons|osds|pools|health> [client_hostname_in_zabbix]
 # 20171201-20171207 v1.1 stas630
-#
+# 20180321- scoopex666
 #
 ZBX_CONFIG_AGENT="/etc/zabbix/zabbix_agentd.conf"
 # Uncomment if need log
@@ -13,11 +12,19 @@ CLUSTER_NAME=$1
 OPERATION=$2
 HOSTNAME=$3
 
+if [ -z "$OPERATION" ];then
+   echo "$0 <clustername> <monitor|mons|osds|pools|health> [hostname]"
+   exit 1
+fi
+
 export PATH=/bin:/usr/bin
 TMPS1="`mktemp -t zbx-ceph.XXXXXXXXXXX`"
 TMPS2="`mktemp -t zbx-ceph.XXXXXXXXXXX`"
 
-HOSTNAME_MON=$(hostname -s)
+trap "rm -f $TMPS1 $TMPS2" EXIT TERM INT 
+
+
+HOSTNAME_MON="$(hostname -s)"
 if [ -e /var/run/ceph/${CLUSTER_NAME}-mon.${HOSTNAME_MON}.asok ];
 then
    ceph daemon mon.${HOSTNAME_MON} mon_status 2>/dev/null | jq -e '.state == "leader"' &> /dev/null
@@ -32,6 +39,7 @@ else
   echo "ERROR: This is not a mon server"
   exit 1
 fi 
+
 case ${OPERATION} in
   monitor)
    (
@@ -40,8 +48,8 @@ case ${OPERATION} in
    $0 ${CLUSTER_NAME} osds $HOSTNAME
    $0 ${CLUSTER_NAME} pools $HOSTNAME
    $0 ${CLUSTER_NAME} health $HOSTNAME
-   ) 2>&1 | tee /tmp/ceph-data.out
-   echo "INFO: logged output to /tmp/ceph-data.out"
+   ) 2>&1 | tee /tmp/ceph-monitor-data.out
+   echo "INFO: logged output to /tmp/ceph-monitor-data.out"
    exit 0
   ;;
   osds)
@@ -147,6 +155,15 @@ case ${OPERATION} in
   ;;
 esac
 
+# Fix data format
+cp ${TMPS1} ${TMPS1}.fix
+cp ${TMPS2} ${TMPS2}.fix
+sed -i '~s,none,0,g' ${TMPS1}.fix ${TMPS2}.fix
+diff -u ${TMPS1} ${TMPS1}.fix
+diff -u ${TMPS2} ${TMPS2}.fix
+mv ${TMPS1}.fix ${TMPS1}
+mv ${TMPS2}.fix ${TMPS2}
+
 if [ -z ${HOSTNAME} ]; then
   echo ------------------------------------------------------------------------------
   cat ${TMPS1}
@@ -154,16 +171,26 @@ if [ -z ${HOSTNAME} ]; then
   echo "$KEY ===>"
   cat ${TMPS2}|tr '\n' ' '
   echo ------------------------------------------------------------------------------
-elif [ -s ${TMPS1} ]; then
-  if [ -z ${LOG} ]; then
-    zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1}
-    echo ---------------------
-    zabbix_sender -c ${ZBX_CONFIG_AGENT} -s $HOSTNAME -k "$KEY" -o "$(echo "${TMPS2}"|tr '\n' ' ')" 
-  else
-    zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1}  -vv >> ${LOG} 2>&1
-    echo ---------------------
-    zabbix_sender -c ${ZBX_CONFIG_AGENT} -s $HOSTNAME -k "$KEY" -o "$(echo "${TMPS2}"|tr '\n' ' ')"  -vv >> ${LOG} 2>&1
+else
+ echo ------------------------------------------------------------------------------
+ if [ -s ${TMPS1} ]; then
+     # Send it to zabbix server
+     if [ -z ${LOG} ]; then
+       zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1}
+     else
+       zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1}  -vv >> ${LOG} 2>&1
+     fi
+ fi
+ echo ------------------------------------------------------------------------------
+ if [ -s ${TMPS2} ]; then
+     if [ -z ${LOG} ]; then
+       set -x 
+       zabbix_sender -c ${ZBX_CONFIG_AGENT} -s $HOSTNAME -k "$KEY" -o "$(cat "${TMPS2}"|tr '\n' ' ')" 
+       set +x
+     else
+       zabbix_sender -c ${ZBX_CONFIG_AGENT} -s $HOSTNAME -k "$KEY" -o "$(cat "${TMPS2}"|tr '\n' ' ')"  -vv >> ${LOG} 2>&1
+     fi
   fi
+ echo ------------------------------------------------------------------------------
 fi
 
-rm -f ${TMPS1}
