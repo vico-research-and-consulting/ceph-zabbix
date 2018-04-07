@@ -16,19 +16,27 @@ Installation
   ```
   cp scripts/ceph-data.sh /usr/local/bin/zabbix_ceph-data.sh
   ```
-* Install cronjob <BR>(replace ceph-prod.foo-bar.com with the cluster host name)
+* Install cronjob <BR>(configure variables)
   ```
-  cat <<'EOF'
-  */3 * * * * root /usr/local/bin/ceph_monitoring_data.sh ceph health ceph-prod.foo-bar.com >/dev/null 2>&1
-  */3 * * * * root /usr/local/bin/ceph_monitoring_data.sh ceph osds ceph-prod.foo-bar.com >/dev/null 2>&1
-  */10 * * * * root /usr/local/bin/ceph_monitoring_data.sh ceph mons ceph-prod.foo-bar.com >/dev/null 2>&1
-  */15 * * * * root /usr/local/bin/ceph_monitoring_data.sh ceph pools ceph-prod.foo-bar.com >/dev/null 2>&1
+  cat >/etc/cron.d/ceph_monitoring_data <<'EOF'
+  CLUSTER_NAME="ceph"
+  ZABBIX_CLUSTER_NAME="ceph-prod.foo-bar.com"
+
+
+  */3 * * * * root /usr/local/bin/ceph_monitoring_data.sh $CLUSTER_NAME health $ZABBIX_CLUSTER_NAME >/dev/null 2>&1
+  */3 * * * * root /usr/local/bin/ceph_monitoring_data.sh $CLUSTER_NAME osds $ZABBIX_CLUSTER_NAME >/dev/null 2>&1
+  */10 * * * * root /usr/local/bin/ceph_monitoring_data.sh $CLUSTER_NAME mons $ZABBIX_CLUSTER_NAME >/dev/null 2>&1
+  */15 * * * * root /usr/local/bin/ceph_monitoring_data.sh $CLUSTER_NAME pools $ZABBIX_CLUSTER_NAME >/dev/null 2>&1
   EOF
   ```
 * Configure Zabbix Agent
   * Check arguments: ServerActive, Hostname, ListenIP in zabbix_agentd.conf
   * Check permission for read user zabbix /etc/ceph/<{$CLUSTER_NAME}>.client.admin.keyring
   * Finally in zabbix setup the discovery rule and related items you need.# ceph-zabbix
+* Invoke initial discovery
+  ```
+  /usr/local/bin/ceph_monitoring_data.sh ceph health ceph-prod.foo-bar.com
+  ```
 
 TODOs
 ======
