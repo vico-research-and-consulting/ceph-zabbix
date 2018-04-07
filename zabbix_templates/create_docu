@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xalan -in "zbx_ceph_template.xml" -out zbx_ceph_template.html -xsl transform.xsl
+

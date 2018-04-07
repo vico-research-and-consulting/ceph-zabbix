@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2017-12-07T10:49:23Z</date>
+    <date>2018-04-07T15:49:19Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template Ceph</template>
-            <name>Template Ceph</name>
+            <template>Custom - Service - Ceph Storage - Extended</template>
+            <name>Custom - Service - Ceph Storage - Extended</name>
             <description/>
             <groups>
                 <group>
@@ -19,13 +19,16 @@
             </groups>
             <applications>
                 <application>
-                    <name>Ceph Cluster</name>
+                    <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                 </application>
                 <application>
-                    <name>Ceph pg</name>
+                    <name>Custom - Service - Ceph Storage - Extended - OSD Perf</name>
                 </application>
                 <application>
-                    <name>Ceph Space</name>
+                    <name>Custom - Service - Ceph Storage - Extended -  Space</name>
+                </application>
+                <application>
+                    <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                 </application>
             </applications>
             <items>
@@ -36,7 +39,7 @@
                     <snmp_oid/>
                     <key>ceph.activating</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -61,7 +64,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -77,7 +80,7 @@
                     <snmp_oid/>
                     <key>ceph.active</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -102,7 +105,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -118,7 +121,7 @@
                     <snmp_oid/>
                     <key>ceph.backfilling</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -143,7 +146,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -159,7 +162,7 @@
                     <snmp_oid/>
                     <key>ceph.backfill_toofull</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -184,7 +187,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -200,7 +203,7 @@
                     <snmp_oid/>
                     <key>ceph.backfill_unfound</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -225,7 +228,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -241,7 +244,7 @@
                     <snmp_oid/>
                     <key>ceph.backfill_wait</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -266,7 +269,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -282,7 +285,7 @@
                     <snmp_oid/>
                     <key>ceph.clean</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -307,7 +310,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -323,7 +326,7 @@
                     <snmp_oid/>
                     <key>ceph.creating</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -348,7 +351,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -364,7 +367,7 @@
                     <snmp_oid/>
                     <key>ceph.deep</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -389,7 +392,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -405,7 +408,7 @@
                     <snmp_oid/>
                     <key>ceph.degraded</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -430,7 +433,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -446,7 +449,7 @@
                     <snmp_oid/>
                     <key>ceph.degraded_percent</key>
                     <delay>30</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -471,7 +474,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -487,7 +490,7 @@
                     <snmp_oid/>
                     <key>ceph.down</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -512,7 +515,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -528,7 +531,7 @@
                     <snmp_oid/>
                     <key>ceph.forced_backfill</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -553,7 +556,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -569,7 +572,7 @@
                     <snmp_oid/>
                     <key>ceph.forced_recovery</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -594,7 +597,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -610,7 +613,7 @@
                     <snmp_oid/>
                     <key>ceph.fullratio</key>
                     <delay>5m</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -640,7 +643,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Space</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -656,7 +659,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.fullratioprcnt</key>
                     <delay>5m</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -686,7 +689,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Space</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -697,15 +700,15 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                 </item>
                 <item>
                     <name>Ceph Cluster health</name>
-                    <type>0</type>
+                    <type>2</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>ceph.health[{$CLUSTER_NAME},health,{HOST.HOST}]</key>
-                    <delay>30s</delay>
-                    <history>90d</history>
-                    <trends>365d</trends>
+                    <key>ceph.health</key>
+                    <delay>0</delay>
+                    <history>60d</history>
+                    <trends>0</trends>
                     <status>0</status>
-                    <value_type>3</value_type>
+                    <value_type>4</value_type>
                     <allowed_hosts/>
                     <units/>
                     <snmpv3_contextname/>
@@ -729,12 +732,53 @@ HEALTH_ERR: 0</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
-                    <valuemap>
-                        <name>Ceph Cluster Status</name>
-                    </valuemap>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>Ceph Cluster health overall_status</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>ceph.health.overall_status</key>
+                    <delay>0</delay>
+                    <history>60d</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>HEALTH_OK: 1&#13;
+HEALTH_WARN: 2&#13;
+HEALTH_ERR: 0</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
                     <logtimefmt/>
                     <preprocessing/>
                     <jmx_endpoint/>
@@ -747,7 +791,7 @@ HEALTH_ERR: 0</description>
                     <snmp_oid/>
                     <key>ceph.incomplete</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -772,7 +816,7 @@ HEALTH_ERR: 0</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -788,7 +832,7 @@ HEALTH_ERR: 0</description>
                     <snmp_oid/>
                     <key>ceph.inconsistent</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -813,7 +857,7 @@ HEALTH_ERR: 0</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -829,7 +873,7 @@ HEALTH_ERR: 0</description>
                     <snmp_oid/>
                     <key>ceph.moncount</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -854,7 +898,7 @@ HEALTH_ERR: 0</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -870,7 +914,7 @@ HEALTH_ERR: 0</description>
                     <snmp_oid/>
                     <key>ceph.nearfullratio</key>
                     <delay>5m</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -900,7 +944,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Space</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -916,7 +960,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.nearfullratioprcnt</key>
                     <delay>5m</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -946,7 +990,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Space</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -962,7 +1006,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.num_in_osds</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -987,7 +1031,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1003,7 +1047,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.num_up_osds</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1028,7 +1072,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1044,7 +1088,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.opsread</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1069,7 +1113,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1085,7 +1129,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.opswrite</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1110,7 +1154,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1126,7 +1170,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.osdcount</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1151,7 +1195,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Space</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1167,7 +1211,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.osd_in</key>
                     <delay>30</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -1192,7 +1236,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1208,7 +1252,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.osd_up</key>
                     <delay>30</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -1233,7 +1277,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1249,7 +1293,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.peered</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1274,7 +1318,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1290,7 +1334,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.peering</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1315,7 +1359,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1331,7 +1375,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.pgtotal</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1356,7 +1400,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1372,7 +1416,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.rdbps</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1397,7 +1441,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1413,7 +1457,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.recovering</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1438,7 +1482,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1454,7 +1498,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.recovery_toofull</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1479,7 +1523,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1495,7 +1539,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.recovery_unfound</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1520,7 +1564,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1536,7 +1580,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.recovery_wait</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1561,7 +1605,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1577,7 +1621,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.remapped</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1602,7 +1646,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1618,7 +1662,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.repair</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1643,7 +1687,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1659,7 +1703,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.scrubbing</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1684,7 +1728,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1700,7 +1744,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.snaptrim</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1725,7 +1769,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1741,7 +1785,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.snaptrim_error</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1766,7 +1810,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1782,7 +1826,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.snaptrim_wait</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1807,7 +1851,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1823,7 +1867,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.spaceavail</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -1848,7 +1892,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Space</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1864,7 +1908,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.spacetotal</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -1889,7 +1933,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Space</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1905,7 +1949,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.spaceused</key>
                     <delay>5m</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>0</value_type>
@@ -1930,7 +1974,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Space</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1946,7 +1990,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.stale</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -1971,7 +2015,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1987,7 +2031,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.undersized</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -2012,7 +2056,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph pg</name>
+                            <name>Custom - Service - Ceph Storage - Extended -  Space - Placement Groups</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -2028,7 +2072,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <snmp_oid/>
                     <key>ceph.wrbps</key>
                     <delay>0</delay>
-                    <history>90d</history>
+                    <history>14d</history>
                     <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -2053,7 +2097,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Ceph Cluster</name>
+                            <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -2066,11 +2110,11 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <discovery_rules>
                 <discovery_rule>
                     <name>MON</name>
-                    <type>0</type>
+                    <type>2</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>ceph-mon-discovery[{$CLUSTER_NAME},mons,{HOST.HOST}]</key>
-                    <delay>1m</delay>
+                    <key>ceph-mon-discovery[mons]</key>
+                    <delay>0</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -2093,7 +2137,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                         <formula/>
                         <conditions/>
                     </filter>
-                    <lifetime>30d</lifetime>
+                    <lifetime>14d</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
@@ -2103,7 +2147,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                             <snmp_oid/>
                             <key>ceph.monstatus[{#MON}]</key>
                             <delay>0</delay>
-                            <history>90d</history>
+                            <history>14d</history>
                             <trends>365d</trends>
                             <status>0</status>
                             <value_type>3</value_type>
@@ -2128,7 +2172,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>Ceph Cluster</name>
+                                    <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                                 </application>
                             </applications>
                             <valuemap>
@@ -2148,11 +2192,11 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                 </discovery_rule>
                 <discovery_rule>
                     <name>OSD</name>
-                    <type>0</type>
+                    <type>2</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>ceph-osd-discovery[{$CLUSTER_NAME},osds,{HOST.HOST}]</key>
-                    <delay>1m</delay>
+                    <key>ceph-osd-discovery[osds]</key>
+                    <delay>0</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -2175,11 +2219,107 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                         <formula/>
                         <conditions/>
                     </filter>
-                    <lifetime>30d</lifetime>
+                    <lifetime>5d</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>{#OSD} : Space Available</name>
+                            <name>{#OSD} : Apply Latency ({#DEVICECLASS})</name>
+                            <type>2</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>ceph.osdperf[{#OSD},apply_latency_ms]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>ms</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Commit latency is how long it takes for an operation to be applied to&#13;
+disk — generally speaking, how long it takes the journal to write an&#13;
+entry. Apply latency is how long it takes to get applied to the&#13;
+backing filesystem (which can be throttled by various things to&#13;
+prevent us getting arbitrarily large amounts of dirty data).</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Custom - Service - Ceph Storage - Extended - OSD Perf</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>Ceph Daemon Status</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#OSD}: Commit Latency ({#DEVICECLASS})</name>
+                            <type>2</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>ceph.osdperf[{#OSD},commit_latency_ms]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>ms</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Commit latency is how long it takes for an operation to be applied to&#13;
+disk — generally speaking, how long it takes the journal to write an&#13;
+entry. Apply latency is how long it takes to get applied to the&#13;
+backing filesystem (which can be throttled by various things to&#13;
+prevent us getting arbitrarily large amounts of dirty data).</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Custom - Service - Ceph Storage - Extended - OSD Perf</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>Ceph Daemon Status</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#OSD} : Space Available ({#DEVICECLASS})</name>
                             <type>2</type>
                             <snmp_community/>
                             <snmp_oid/>
@@ -2210,7 +2350,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>Ceph Space</name>
+                                    <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -2221,7 +2361,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                             <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
-                            <name>{#OSD}: Status</name>
+                            <name>{#OSD}: Status ({#DEVICECLASS})</name>
                             <type>2</type>
                             <snmp_community/>
                             <snmp_oid/>
@@ -2252,7 +2392,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>Ceph Cluster</name>
+                                    <name>Custom - Service - Ceph Storage - Extended - Global Cluster State</name>
                                 </application>
                             </applications>
                             <valuemap>
@@ -2266,17 +2406,94 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes/>
-                    <graph_prototypes/>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <name>{#OSD} : Latencies ({#DEVICECLASS})</name>
+                            <width>900</width>
+                            <height>300</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>1</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>2774A4</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Custom - Service - Ceph Storage - Extended</host>
+                                        <key>ceph.osdperf[{#OSD},commit_latency_ms]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>F63100</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Custom - Service - Ceph Storage - Extended</host>
+                                        <key>ceph.osdperf[{#OSD},apply_latency_ms]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>{#OSD} : Space Available ({#DEVICECLASS})</name>
+                            <width>900</width>
+                            <height>300</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>1A7C11</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Custom - Service - Ceph Storage - Extended</host>
+                                        <key>ceph.osdspaceavail[{#OSD}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
                     <host_prototypes/>
                     <jmx_endpoint/>
                 </discovery_rule>
                 <discovery_rule>
                     <name>POOL</name>
-                    <type>0</type>
+                    <type>2</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>ceph-pools-discovery[{$CLUSTER_NAME},pools,{HOST.HOST}]</key>
-                    <delay>1m</delay>
+                    <key>ceph-pools-discovery[pools]</key>
+                    <delay>0</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -2299,7 +2516,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                         <formula/>
                         <conditions/>
                     </filter>
-                    <lifetime>30d</lifetime>
+                    <lifetime>14d</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
@@ -2309,7 +2526,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                             <snmp_oid/>
                             <key>ceph.poolspaceavail[{#POOL}]</key>
                             <delay>0</delay>
-                            <history>90d</history>
+                            <history>14d</history>
                             <trends>365d</trends>
                             <status>0</status>
                             <value_type>0</value_type>
@@ -2334,7 +2551,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>Ceph Space</name>
+                                    <name>Custom - Service - Ceph Storage - Extended -  Space</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -2347,7 +2564,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template Ceph:ceph.poolspaceavail[{#POOL}].last()}&lt;{$SPACEAVAIL_POOL_HIGH}</expression>
+                            <expression>{Custom - Service - Ceph Storage - Extended:ceph.poolspaceavail[{#POOL}].last()}&lt;{$SPACEAVAIL_POOL_HIGH}</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>Ceph Cluster: {#POOL} : Space Available is less than {$SPACEAVAIL_POOL_HIGH}</name>
@@ -2363,7 +2580,40 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                             <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
-                    <graph_prototypes/>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <name>Space Available : {#POOL}</name>
+                            <width>900</width>
+                            <height>300</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>1A7C11</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Custom - Service - Ceph Storage - Extended</host>
+                                        <key>ceph.poolspaceavail[{#POOL}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
                     <host_prototypes/>
                     <jmx_endpoint/>
                 </discovery_rule>
@@ -2396,12 +2646,239 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                 </macro>
             </macros>
             <templates/>
-            <screens/>
+            <screens>
+                <screen>
+                    <name>Custom - Service - Ceph Storage - Extended  - Global</name>
+                    <hsize>1</hsize>
+                    <vsize>6</vsize>
+                    <screen_items>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>900</width>
+                            <height>300</height>
+                            <x>0</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>Ceph Load</name>
+                                <host>Custom - Service - Ceph Storage - Extended</host>
+                            </resource>
+                            <max_columns>3</max_columns>
+                            <application/>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>900</width>
+                            <height>300</height>
+                            <x>0</x>
+                            <y>1</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>Degraded %</name>
+                                <host>Custom - Service - Ceph Storage - Extended</host>
+                            </resource>
+                            <max_columns>3</max_columns>
+                            <application/>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>900</width>
+                            <height>300</height>
+                            <x>0</x>
+                            <y>2</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>Moving PGs</name>
+                                <host>Custom - Service - Ceph Storage - Extended</host>
+                            </resource>
+                            <max_columns>3</max_columns>
+                            <application/>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>900</width>
+                            <height>300</height>
+                            <x>0</x>
+                            <y>3</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>OSDs</name>
+                                <host>Custom - Service - Ceph Storage - Extended</host>
+                            </resource>
+                            <max_columns>3</max_columns>
+                            <application/>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>900</width>
+                            <height>300</height>
+                            <x>0</x>
+                            <y>4</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>PGS</name>
+                                <host>Custom - Service - Ceph Storage - Extended</host>
+                            </resource>
+                            <max_columns>3</max_columns>
+                            <application/>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>900</width>
+                            <height>300</height>
+                            <x>0</x>
+                            <y>5</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>Problem PGs</name>
+                                <host>Custom - Service - Ceph Storage - Extended</host>
+                            </resource>
+                            <max_columns>3</max_columns>
+                            <application/>
+                        </screen_item>
+                    </screen_items>
+                </screen>
+                <screen>
+                    <name>Custom - Service - Ceph Storage - Extended - OSD</name>
+                    <hsize>1</hsize>
+                    <vsize>1</vsize>
+                    <screen_items>
+                        <screen_item>
+                            <resourcetype>20</resourcetype>
+                            <width>600</width>
+                            <height>300</height>
+                            <x>0</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>{#OSD} : Space Available ({#DEVICECLASS})</name>
+                                <host>Custom - Service - Ceph Storage - Extended</host>
+                            </resource>
+                            <max_columns>2</max_columns>
+                            <application/>
+                        </screen_item>
+                    </screen_items>
+                </screen>
+                <screen>
+                    <name>Custom - Service - Ceph Storage - Extended - OSD Perf</name>
+                    <hsize>1</hsize>
+                    <vsize>1</vsize>
+                    <screen_items>
+                        <screen_item>
+                            <resourcetype>20</resourcetype>
+                            <width>600</width>
+                            <height>300</height>
+                            <x>0</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>{#OSD} : Latencies ({#DEVICECLASS})</name>
+                                <host>Custom - Service - Ceph Storage - Extended</host>
+                            </resource>
+                            <max_columns>2</max_columns>
+                            <application/>
+                        </screen_item>
+                    </screen_items>
+                </screen>
+                <screen>
+                    <name>Custom - Service - Ceph Storage - Extended  - Pool</name>
+                    <hsize>1</hsize>
+                    <vsize>1</vsize>
+                    <screen_items>
+                        <screen_item>
+                            <resourcetype>20</resourcetype>
+                            <width>900</width>
+                            <height>300</height>
+                            <x>0</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>Space Available : {#POOL}</name>
+                                <host>Custom - Service - Ceph Storage - Extended</host>
+                            </resource>
+                            <max_columns>3</max_columns>
+                            <application/>
+                        </screen_item>
+                    </screen_items>
+                </screen>
+            </screens>
         </template>
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template Ceph:ceph.degraded.last(0)}&gt;0</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.degraded.last(0)}&gt;0</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph cluster has degraded PGs</name>
@@ -2417,7 +2894,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.down.last(0)}&gt;0</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.down.last(0)}&gt;0</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph cluster has down PGs</name>
@@ -2433,7 +2910,71 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.spaceavail.last()}/{Template Ceph:ceph.spacetotal.last()}&lt;{$SPACEAVAIL_HIGH}</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.health.str(&quot;HEALTH_ERROR&quot;)}=1</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Ceph cluster in ERROR state</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.health.str(&quot;HEALTH_WARN&quot;)}=1</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Ceph cluster in WARN state</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.health.str(&quot;HEALTH_OK&quot;)}&lt;&gt;1</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Ceph cluster is not OK</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.health.nodata(900)}=1</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Ceph cluster monitoring not data for 900s</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.last()}/{Custom - Service - Ceph Storage - Extended:ceph.spacetotal.last()}&lt;{$SPACEAVAIL_HIGH}</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster SpaceAvail is less than 5%</name>
@@ -2449,7 +2990,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.spaceavail.last()}/{Template Ceph:ceph.spacetotal.last()}&lt;{$SPACEAVAIL_AVERAGE}</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.last()}/{Custom - Service - Ceph Storage - Extended:ceph.spacetotal.last()}&lt;{$SPACEAVAIL_AVERAGE}</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster SpaceAvail is less than 10%</name>
@@ -2465,7 +3006,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.spaceavail.last()}/{Template Ceph:ceph.spacetotal.last()}&lt;{$SPACEAVAIL_WARNING}</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.last()}/{Custom - Service - Ceph Storage - Extended:ceph.spacetotal.last()}&lt;{$SPACEAVAIL_WARNING}</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster SpaceAvail is less than 15%</name>
@@ -2481,7 +3022,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.spaceavail.timeleft(86400,,0)}&lt;1h</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.timeleft(86400,,0)}&lt;1h</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Space timeleft is less than a day</name>
@@ -2496,14 +3037,14 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <dependencies>
                 <dependency>
                     <name>Ceph Cluster Space timeleft is less than a hour</name>
-                    <expression>{Template Ceph:ceph.spaceavail.timeleft(3600,,0)}&lt;1h</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.timeleft(3600,,0)}&lt;1h</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.spaceavail.timeleft(3600,,0)}&lt;1h</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.timeleft(3600,,0)}&lt;1h</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Space timeleft is less than a hour</name>
@@ -2519,7 +3060,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.spaceavail.timeleft(604800,,0)}&lt;1w</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.timeleft(604800,,0)}&lt;1w</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Space timeleft is less than a week</name>
@@ -2534,19 +3075,19 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <dependencies>
                 <dependency>
                     <name>Ceph Cluster Space timeleft is less than a hour</name>
-                    <expression>{Template Ceph:ceph.spaceavail.timeleft(3600,,0)}&lt;1h</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.timeleft(3600,,0)}&lt;1h</expression>
                     <recovery_expression/>
                 </dependency>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach FullRatio Mark less than in a day</name>
-                    <expression>{Template Ceph:ceph.fullratio.timeleft(86400,,0)}&lt;1d</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.fullratio.timeleft(86400,,0)}&lt;1d</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.spaceavail.timeleft(2592000,,0)}&lt;30d</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.timeleft(2592000,,0)}&lt;30d</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Space timeleft is less than a week</name>
@@ -2561,24 +3102,24 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <dependencies>
                 <dependency>
                     <name>Ceph Cluster Space timeleft is less than a hour</name>
-                    <expression>{Template Ceph:ceph.spaceavail.timeleft(3600,,0)}&lt;1h</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.timeleft(3600,,0)}&lt;1h</expression>
                     <recovery_expression/>
                 </dependency>
                 <dependency>
                     <name>Ceph Cluster Space timeleft is less than a week</name>
-                    <expression>{Template Ceph:ceph.spaceavail.timeleft(604800,,0)}&lt;1w</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.spaceavail.timeleft(604800,,0)}&lt;1w</expression>
                     <recovery_expression/>
                 </dependency>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach FullRatio Mark less than in a day</name>
-                    <expression>{Template Ceph:ceph.fullratio.timeleft(86400,,0)}&lt;1d</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.fullratio.timeleft(86400,,0)}&lt;1d</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.fullratio.timeleft(86400,,0)}&lt;1d</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.fullratio.timeleft(86400,,0)}&lt;1d</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Used Space will reach FullRatio Mark less than in a day</name>
@@ -2593,14 +3134,14 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <dependencies>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach FullRatio Mark less than in an hour</name>
-                    <expression>{Template Ceph:ceph.fullratio.timeleft(3600,,0)}&lt;1h</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.fullratio.timeleft(3600,,0)}&lt;1h</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.fullratio.timeleft(3600,,0)}&lt;1h</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.fullratio.timeleft(3600,,0)}&lt;1h</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Used Space will reach FullRatio Mark less than in an hour</name>
@@ -2616,7 +3157,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.fullratio.timeleft(604800,,0)}&lt;1w</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.fullratio.timeleft(604800,,0)}&lt;1w</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Used Space will reach FullRatio Mark less than in a week</name>
@@ -2631,19 +3172,19 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <dependencies>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach FullRatio Mark less than in a day</name>
-                    <expression>{Template Ceph:ceph.fullratio.timeleft(86400,,0)}&lt;1d</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.fullratio.timeleft(86400,,0)}&lt;1d</expression>
                     <recovery_expression/>
                 </dependency>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach FullRatio Mark less than in an hour</name>
-                    <expression>{Template Ceph:ceph.fullratio.timeleft(3600,,0)}&lt;1h</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.fullratio.timeleft(3600,,0)}&lt;1h</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.nearfullratio.timeleft(86400,,0)}&lt;1d</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(86400,,0)}&lt;1d</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in a day</name>
@@ -2658,14 +3199,14 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <dependencies>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in an hour</name>
-                    <expression>{Template Ceph:ceph.nearfullratio.timeleft(3600,,0)}&lt;1h</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(3600,,0)}&lt;1h</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.nearfullratio.timeleft(2592000,,0)}&lt;30d</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(2592000,,0)}&lt;30d</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in a month</name>
@@ -2680,24 +3221,24 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <dependencies>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in a day</name>
-                    <expression>{Template Ceph:ceph.nearfullratio.timeleft(86400,,0)}&lt;1d</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(86400,,0)}&lt;1d</expression>
                     <recovery_expression/>
                 </dependency>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in an hour</name>
-                    <expression>{Template Ceph:ceph.nearfullratio.timeleft(3600,,0)}&lt;1h</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(3600,,0)}&lt;1h</expression>
                     <recovery_expression/>
                 </dependency>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in a week</name>
-                    <expression>{Template Ceph:ceph.nearfullratio.timeleft(604800,,0)}&lt;1w</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(604800,,0)}&lt;1w</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.nearfullratio.timeleft(3600,,0)}&lt;1h</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(3600,,0)}&lt;1h</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in an hour</name>
@@ -2713,7 +3254,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Ceph:ceph.nearfullratio.timeleft(604800,,0)}&lt;1w</expression>
+            <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(604800,,0)}&lt;1w</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in a week</name>
@@ -2728,12 +3269,12 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <dependencies>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in a day</name>
-                    <expression>{Template Ceph:ceph.nearfullratio.timeleft(86400,,0)}&lt;1d</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(86400,,0)}&lt;1d</expression>
                     <recovery_expression/>
                 </dependency>
                 <dependency>
                     <name>Ceph Cluster Used Space will reach NearFullRatio Mark less than in an hour</name>
-                    <expression>{Template Ceph:ceph.nearfullratio.timeleft(3600,,0)}&lt;1h</expression>
+                    <expression>{Custom - Service - Ceph Storage - Extended:ceph.nearfullratio.timeleft(3600,,0)}&lt;1h</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
@@ -2764,34 +3305,34 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <drawtype>0</drawtype>
                     <color>0000C8</color>
                     <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
+                    <calc_fnc>4</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.rdbps</key>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>00C800</color>
                     <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
+                    <calc_fnc>4</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.wrbps</key>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>1</drawtype>
+                    <sortorder>2</sortorder>
+                    <drawtype>5</drawtype>
                     <color>C80000</color>
                     <yaxisside>1</yaxisside>
-                    <calc_fnc>2</calc_fnc>
+                    <calc_fnc>4</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.opsread</key>
                     </item>
                 </graph_item>
@@ -2823,7 +3364,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.degraded_percent</key>
                     </item>
                 </graph_item>
@@ -2855,7 +3396,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.recovering</key>
                     </item>
                 </graph_item>
@@ -2867,7 +3408,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.remapped</key>
                     </item>
                 </graph_item>
@@ -2879,7 +3420,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.peering</key>
                     </item>
                 </graph_item>
@@ -2911,7 +3452,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.osd_up</key>
                     </item>
                 </graph_item>
@@ -2923,7 +3464,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.osd_in</key>
                     </item>
                 </graph_item>
@@ -2955,7 +3496,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.active</key>
                     </item>
                 </graph_item>
@@ -2967,7 +3508,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.clean</key>
                     </item>
                 </graph_item>
@@ -2999,7 +3540,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.degraded</key>
                     </item>
                 </graph_item>
@@ -3011,7 +3552,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.incomplete</key>
                     </item>
                 </graph_item>
@@ -3023,7 +3564,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.inconsistent</key>
                     </item>
                 </graph_item>
@@ -3035,7 +3576,7 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Ceph</host>
+                        <host>Custom - Service - Ceph Storage - Extended</host>
                         <key>ceph.down</key>
                     </item>
                 </graph_item>
@@ -3043,23 +3584,6 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
         </graph>
     </graphs>
     <value_maps>
-        <value_map>
-            <name>Ceph Cluster Status</name>
-            <mappings>
-                <mapping>
-                    <value>0</value>
-                    <newvalue>HEALTH_ERR</newvalue>
-                </mapping>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>HEALTH_OK</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>HEALTH_WARN</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
         <value_map>
             <name>Ceph Daemon Status</name>
             <mappings>

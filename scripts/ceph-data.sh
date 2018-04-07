@@ -45,15 +45,18 @@ case ${OPERATION} in
    (
    set -x
    $0 ${CLUSTER_NAME} mons $HOSTNAME
+   echo
    $0 ${CLUSTER_NAME} osds $HOSTNAME
+   echo
    $0 ${CLUSTER_NAME} pools $HOSTNAME
+   echo
    $0 ${CLUSTER_NAME} health $HOSTNAME
    ) 2>&1 | tee /tmp/ceph-monitor-data.out
    echo "INFO: logged output to /tmp/ceph-monitor-data.out"
    exit 0
   ;;
   osds)
-    KEY="ceph-osd-discovery[$CLUSTER_NAME,$OPERATION,$HOSTNAME]"
+    KEY="ceph-osd-discovery[$OPERATION]"
     ceph --cluster ${CLUSTER_NAME} osd df tree -f json |\
       jq -r '(.nodes[]|select(.type=="osd")|"\(.name) \(.kb_avail / 1048576)"),
         "ceph.spaceavail \(.summary.total_kb_avail / 1048576)",
@@ -76,7 +79,7 @@ case ${OPERATION} in
   ;;
 
   pools)
-    KEY="ceph-pools-discovery[$CLUSTER_NAME,$OPERATION,$HOSTNAME]"
+    KEY="ceph-pools-discovery[$OPERATION]"
     ceph --cluster ${CLUSTER_NAME} df -f json |\
       jq -r '.pools[]|"\(.name) \(.stats.max_avail / 1073741824)"'|\
       awk '
@@ -90,7 +93,7 @@ case ${OPERATION} in
   ;;
 
   mons)
-    KEY="ceph-mon-discovery[$CLUSTER_NAME,$OPERATION,$HOSTNAME]"
+    KEY="ceph-mon-discovery[$OPERATION]"
     ceph --cluster ${CLUSTER_NAME} mon dump 2>/dev/null -f json |\
       jq -r  'reduce .mons[] as $mon ({rquorum:.quorum,rmons:{}}; . + {rmons:(.rmons+ { ($mon.name):(.rquorum| if index($mon.rank)==null then 0 else 1 end) })} ) |.rmons|to_entries[]|"\(.key) \(.value)"'|\
       awk '
@@ -104,10 +107,10 @@ case ${OPERATION} in
   ;;
 
   health)
-    KEY="health[$CLUSTER_NAME,$OPERATION,$HOSTNAME]"
     ceph --cluster ${CLUSTER_NAME} status -f json |\
       jq -r '
-        "\(if .health.status =="HEALTH_OK" then 1 elif .health.status =="HEALTH_WARN" then 2 else 0 end)",
+        "ceph.health \(.health.status)",
+        "ceph.health.overall_status \(.health.overall_status)",
         "ceph.moncount \(.monmap.mons|length)",
         "ceph.pgtotal \(.pgmap.num_pgs)",
         "ceph.activating \(.pgmap.pgs_by_state|map(select(.state_name|contains("activating")))|reduce .[] as $state (0; . + $state.count))",
@@ -145,52 +148,61 @@ case ${OPERATION} in
         "ceph.wrbps \(.pgmap.write_bytes_sec)",
         "ceph.opsread \(.pgmap.read_op_per_sec)",
         "ceph.opswrite \(.pgmap.write_op_per_sec)"'|\
-        awk '{
-          if(NR==1){
-            print
-          }else{
-            print "'$HOSTNAME' "$0> "'${TMPS1}'"
-          }
-        }' >$TMPS2
+        awk '{ print "'$HOSTNAME' "$0> "'${TMPS1}'" }' >$TMPS2
   ;;
 esac
 
 # Fix data format
-cp ${TMPS1} ${TMPS1}.fix
-cp ${TMPS2} ${TMPS2}.fix
-sed -i '~s,none,0,g' ${TMPS1}.fix ${TMPS2}.fix
-diff -u ${TMPS1} ${TMPS1}.fix
-diff -u ${TMPS2} ${TMPS2}.fix
-mv ${TMPS1}.fix ${TMPS1}
-mv ${TMPS2}.fix ${TMPS2}
+if [ -s ${TMPS1} ]; then
+  cp ${TMPS1} ${TMPS1}.fix
+  sed -i '~s,null,0,g' ${TMPS1}.fix
+  diff -u ${TMPS1} ${TMPS1}.fix
+  mv ${TMPS1}.fix ${TMPS1}
+fi
+
+if [ -s ${TMPS2} ]; then
+  cp ${TMPS2} ${TMPS2}.fix
+  sed -i '~s,null,0,g' ${TMPS2}.fix
+  diff -u ${TMPS2} ${TMPS2}.fix
+  mv ${TMPS2}.fix ${TMPS2}
+  VALUE="$(cat "${TMPS2}"|tr '\n' ' '|sed '~s,^[ ]*,,;~s,[ ]*$,,')"
+fi
 
 if [ -z ${HOSTNAME} ]; then
   echo ------------------------------------------------------------------------------
   cat ${TMPS1}
   echo ------------------------------------------------------------------------------
-  echo "$KEY ===>"
-  cat ${TMPS2}|tr '\n' ' '
+  echo "$KEY ===> >>>$VALUE<<<"
   echo ------------------------------------------------------------------------------
-else
- echo ------------------------------------------------------------------------------
- if [ -s ${TMPS1} ]; then
-     # Send it to zabbix server
-     if [ -z ${LOG} ]; then
-       zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1}
-     else
-       zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1}  -vv >> ${LOG} 2>&1
-     fi
- fi
- echo ------------------------------------------------------------------------------
- if [ -s ${TMPS2} ]; then
-     if [ -z ${LOG} ]; then
-       set -x 
-       zabbix_sender -c ${ZBX_CONFIG_AGENT} -s $HOSTNAME -k "$KEY" -o "$(cat "${TMPS2}"|tr '\n' ' ')" 
-       set +x
-     else
-       zabbix_sender -c ${ZBX_CONFIG_AGENT} -s $HOSTNAME -k "$KEY" -o "$(cat "${TMPS2}"|tr '\n' ' ')"  -vv >> ${LOG} 2>&1
-     fi
-  fi
- echo ------------------------------------------------------------------------------
+  exit 1
 fi
+
+echo ------------------------------------------------------------------------------
+if [ -s ${TMPS1} ]; then
+    # Send it to zabbix server
+    if [ -z ${LOG} ]; then
+      zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1} -vv
+      RET="$?"
+    else
+      zabbix_sender -c ${ZBX_CONFIG_AGENT} -i ${TMPS1}  -vv >> ${LOG} 2>&1
+      RET="$?"
+    fi
+    if [ "$RET" != "0" ];then
+       echo "ERROR: failed with exit code $RET"
+    fi
+fi
+echo ------------------------------------------------------------------------------
+if [ -n "${VALUE}" ]; then
+    if [ -z ${LOG} ]; then
+      zabbix_sender -s $HOSTNAME -c ${ZBX_CONFIG_AGENT} -k "$KEY" -o "$VALUE" -vv
+      RET="$?"
+    else
+      zabbix_sender -s $HOSTNAME -c ${ZBX_CONFIG_AGENT} -k "$KEY" -o "$VALUE"  -vv >> ${LOG} 2>&1
+      RET="$?"
+    fi
+    if [ "$RET" != "0" ];then
+       echo "ERROR: failed with exit code $RET"
+    fi
+fi
+echo ------------------------------------------------------------------------------
 
